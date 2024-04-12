@@ -31,7 +31,7 @@ O bloco resource, tem possui dois atributos:
 1. resource type - define o tipo do resource, isso depende do provider, nesse caso é o provider é o Google; (google_compute_instance)
 2. resource name - nome a minha escolha, que referência esse resource dentro do scope do meu terraform; (myfirst-resource-terraform)
 
-## Inicialização do Terraform Scope
+## [Inicialização do Terraform Scope](#inicialização-do-terraform-scope)
 Faz o download do(s) "plugin" para estabelecer a conexão e interpretar os comando do provider, nesse caso o provider é Google, e o plugin será "hashicorp/google" (ultima versão).
 
 Executar o comando:
@@ -39,7 +39,7 @@ Executar o comando:
 terraform init
 ```
 
-## Planejamento de Execução
+## [Planejamento de Execução](#planejamento-de-execução)
 O terraform vai testar o conteudo do(s) arquivo(s) *.tf, dentro do diretorio, e vai simular a criação, devolvendo um resumo dos resources que vão ser criados/alterados/eliminados; caso identifique um erro, apresenta o erro;
 
 Executar o comando:
@@ -47,7 +47,7 @@ Executar o comando:
 terraform plan
 ```
 
-## Aplicando as configurações
+## [Aplicando as configurações](#aplicando-as-configurações)
 Com esse comando, o terraform repete uma simulação, como no comando "terraform plan", poem no final, se não identificar erros, ele pergunta se deve aplicar, se reponder "yes", ele inicializa a criação do resource; 
 
 Executar o comando:
@@ -55,7 +55,7 @@ Executar o comando:
 terraform apply
 ```
 
-## Consultar Status
+## [Consultar Status](#consultar-status)
 Apresenta o status atual das configurações aplicadas para os resources controlados dentro do diretório onde o comando foi executado; 
 
 Executar o comando:
@@ -63,6 +63,21 @@ Executar o comando:
 terraform show
 ```
 
+## [Destruir/Eliminar Resources](#destruireliminar-resources)
+Elimina todos os resources controlados dentro do diretório onde o comando foi executado; 
+
+Executar o comando:
+```bash
+terraform destroy
+```
+
+## [Marcar como contâminado um Resources](#marcar-como-contâminado-um-resources)
+Marcam um resource como "contâminado", para forçar, quando houver uma alteração no recurso, ele ser eliminado e re-criado; 
+
+Executar o comando:
+```bash
+terraform taint <RESOURCE_TYPE>.<RESOURCE_NAME>
+```
 
 ## Obs.:
 - O nome do arquivo não é obrigatório, mas seguir o padrão facilita por existir um padrão pré-definido;
